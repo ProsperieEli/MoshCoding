@@ -14,14 +14,30 @@ renderTags() {
 
 }
 
+// constructor() {
+//     super()
+// this.handleIncriment = this.handleIncriment.bind(this)
+// }
+
+handleIncriment = () => {
+this.setState({count: this.state.count + 1})
+}
+
+handleDecriment = () => {
+    this.setState({count: this.state.count - 1})
+    }
+
+
 render() { 
     return (
-        <> 
-            <span className={this.getBadgeClasses} >{this.formatCount()}</span>
-            <button className='btn-secondary tn-sm'>Incrementing</button>
+<div>
+<span className={this.getBadgeClasses}>{this.formatCount()}</span>
+            <button onClick={this.handleIncriment} className='btn-secondary tn-sm'>Incrementing</button>
+            <button onClick={this.handleDecriment} className='btn-secondary tn-sm'>Decriment</button>
             {this.state.tags.length === 0 && "Please create a new tag"}
         {this.renderTags()}
-        </>
+</div>
+
         );
     }
 
